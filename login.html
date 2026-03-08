@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <!--====== Required meta tags ======-->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--====== Title ======-->
+        <title>Stackly Meeting</title>
+        <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+        <!--====== Google Fonts ======-->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!--====== FontAwesome css ======-->
+        <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <!--====== Bootstrap css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+        <!--====== Slick-popup css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/slick.css">
+        <!--====== Magnific-popup css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+        <!--====== Aos css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/aos.css">
+        <!--====== Default css ======-->
+        <link rel="stylesheet" href="assets/css/spacings.css">
+        <!--====== Default css ======-->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+
+
+
+
+/* DARK MODE */
+
+body.dark-mode{
+background:linear-gradient(135deg,#020617,#0f172a);
+}
+
+/* AUTH CONTAINER */
+
+.auth-container{
+width:950px;
+height:560px;
+background:#ffffff;
+border-radius:20px;
+display:flex;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.1);
+transition:0.4s;
+}
+
+/* DARK MODE */
+
+body.dark-mode .auth-container{
+background:#1e293b;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* LEFT PANEL */
+
+.auth-left{
+flex:1;
+background:linear-gradient(135deg,#D5313D,#7f1d1d);
+color:#fff;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:50px;
+text-align:center;
+}
+
+.auth-left h2{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.auth-left p{
+opacity:0.9;
+font-size:16px;
+}
+
+/* RIGHT PANEL */
+
+.auth-right{
+flex:1;
+background:#ffffff;
+padding:50px;
+position:relative;
+overflow:hidden;
+transition:0.4s;
+border-right:2px solid #D5313D;
+border-top-right-radius:20px;
+border-bottom-right-radius:20px;
+}
+
+
+body.dark-mode .auth-right{
+background:#020617;
+}
+
+/* AUTH WRAPPER CENTER */
+
+.auth-wrapper{
+min-height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:60px 20px;
+}
+/* FORMS */
+
+.form{
+width:100%;
+position:absolute;
+top:0;
+left:0;
+padding:50px;
+transition:0.5s;
+}
+
+.form h3{
+font-size:28px;
+margin-bottom:25px;
+color:#020617;
+}
+
+body.dark-mode .form h3{
+color:#ffffff;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:20px;
+}
+
+.input-group input{
+width:100%;
+padding:16px;
+border-radius:10px;
+border:1px solid #e2e8f0;
+font-size:16px;
+transition:0.3s;
+}
+
+body.dark-mode .input-group input{
+background:#020617;
+border:1px solid #334155;
+color:#ffffff;
+}
+
+.input-group input:focus{
+border-color:#D5313D;
+outline:none;
+}
+
+/* BUTTON */
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+background:#D5313D;
+color:#fff;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+margin-bottom:15px;
+}
+
+.btn:hover{
+background:#020617;
+color:#fff;
+}
+
+body.dark-mode .btn:hover{
+background:#ffffff;
+color:#020617;
+}
+
+/* LINKS */
+
+.switch{
+margin-top:8px;
+font-size:14px;
+cursor:pointer;
+color:#475569;
+}
+
+.switch:hover{
+color:#D5313D;
+}
+
+body.dark-mode .switch{
+color:#cbd5e1;
+}
+
+/* SOCIAL */
+
+.social{
+display:flex;
+justify-content:center;
+margin-top:20px;
+gap:15px;
+}
+
+.social i{
+width:42px;
+height:42px;
+background:#e2e8f0;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#020617;
+cursor:pointer;
+transition:0.3s;
+}
+
+body.dark-mode .social i{
+background:#334155;
+color:#ffffff;
+}
+
+.social i:hover{
+background:#D5313D;
+color:#fff;
+}
+
+/* SWIPE ANIMATION */
+
+.auth-container.active .login-form{
+transform:translateX(-100%);
+}
+
+.auth-container.active .register-form{
+transform:translateX(0);
+}
+
+.register-form{
+transform:translateX(100%);
+}
+
+/* FORGOT */
+
+.forgot-form{
+transform:translateX(100%);
+}
+
+.auth-container.forgot .login-form{
+transform:translateX(-100%);
+}
+
+.auth-container.forgot .forgot-form{
+transform:translateX(0);
+}
+
+@media (max-width:768px){
+
+/* container */
+
+.auth-container{
+flex-direction:column;
+width:95%;
+height:auto;
+}
+
+/* hide welcome panel */
+
+.auth-left{
+display:none;
+}
+
+/* right panel */
+
+.auth-right{
+width:100%;
+padding:25px;
+border:none;
+border-radius:20px;
+position:relative;
+height:auto;        /* FIX */
+min-height:420px;   /* keep slider space */
+overflow:hidden;
+}
+
+/* forms */
+
+.form{
+position:absolute;
+top:0;              /* FIX: remove gap */
+left:0;
+width:100%;
+padding:25px;
+}
+
+/* reduce spacing */
+
+.form h3{
+font-size:22px;
+margin-bottom:20px;
+}
+
+/* inputs */
+
+.input-group input{
+padding:14px;
+font-size:14px;
+}
+
+/* button */
+
+.btn{
+padding:14px;
+font-size:15px;
+}
+
+/* social */
+
+.social{
+margin-top:10px;
+}
+
+.social i{
+width:38px;
+height:38px;
+font-size:14px;
+}
+
+}
+
+
+</style>
+
+</head>
+
+<body class="home-three">
+            <!--====== Start Preloader ======-->
+        <div class="preloader">
+            <div class="loading-wrapper">
+                <div class="loading"></div>
+                <div id="loading-icon"><img src="assets/images/loader/loader-1.webp" alt="loader"></div>
+            </div>
+        </div><!--====== End Preloader ======-->
+        <!--====== Start Overlay ======-->
+        <div class="offcanvas__overlay"></div>
+        <!--=== Start  Header Area  ===-->
+        <header class="header-area header-three transparent-header">
+            <!--====  Header Navigation  ===-->
+            <div class="header-navigation">
+                <div class="container-fluid">
+                    <!--====  Primary Menu  ===-->
+                    <div class="primary-menu">
+                        <!--====  Site Branding  ===-->
+                        <div class="site-branding">
+                            <a href="index.html" class="brand-logo"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                        </div>
+                        <!--=== Main Menu ===-->
+                        <div class="theme-nav-menu">
+                            <!--=== Menu Top ===-->
+                            <div class="theme-menu-top d-block d-xl-none">
+                                <div class="site-branding">
+                                    <a href="index.html" class="brand-logo"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                                </div>
+                            </div>
+                            <!--=== Main Menu ===-->
+                            <nav class="main-menu">
+                                <ul>
+                                    <li class="menu-item has-children"><a href="index.html">Home</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index.html">Home One</a></li>
+                                            <li><a href="index-2.html">Home Two</a></li>
+                                        </ul>
+                                    </li>   
+                               <li class="menu-item"><a href="about.html">About</a></li>
+                                    <li class="menu-item"><a href="features.html">Features</a></li>
+                                    <li class="menu-item"><a href="pricing.html">Pricing</a></li>        
+                                    <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                                     <li class="menu-item"><a href="faq.html">FAQs</a></li>
+                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <!--=== Nav Button ===-->
+                            <div class="theme-nav-button mt-20 d-block d-md-none">
+                                <a href="login.html" class="theme-btn style-one">Get A Quote<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <!--===  Menu Bottom ===-->
+                            <div class="theme-menu-bottom mt-50 d-block d-xl-none">
+                                <h5>Follow Us</h5>
+                                <ul class="social-link">
+                                    <li><a href="404.html"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--=== Header Nav Right ===-->
+                        <div class="nav-right-item">
+                                <div class="theme-toggle">
+       <button id="themeToggle">
+<i class="fas fa-moon"></i>
+</button>
+    </div>
+
+    <!-- Get a Quote Button -->
+    <div class="nav-button d-none d-md-block">
+        <a href="login.html" class="theme-btn style-one">
+            Get A Quote <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+                            <div class="navbar-toggler">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </header><!--=== End  Header Area  ===-->
+
+            <!--======  Smooth Wrapper  ======-->
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <main>
+                    <!--======  Start Page Hero Section  ======-->
+                    <section class="page-hero bg_cover p-r z-1" data-src="assets/images/home-three/about/page-bg.webp">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!--=== Page Content ===-->
+                                    <div class="page-content text-center">
+                                        <h1>Login</h1>
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li>Login</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section><!--======  End Page Hero Section  ======-->
+<section class="auth-wrapper">
+<div class="auth-container" id="authBox">
+
+<!-- LEFT -->
+
+<div class="auth-left" data-aos="fade-right">
+
+<h2>Welcome to Stackly</h2>
+
+<p>Secure meeting platform for teams and businesses</p>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="auth-right">
+
+<!-- LOGIN -->
+
+<div class="form login-form">
+
+<h3>Login</h3>
+
+<div class="input-group">
+<input type="email" id="loginEmail" placeholder="Email">
+<small class="error" id="loginEmailError"></small>
+</div>
+
+<div class="input-group">
+<input type="password" id="loginPassword" placeholder="Password">
+<small class="error" id="loginPasswordError"></small>
+</div>
+
+<button type="button" class="btn" onclick="validateLogin()">Login</button>
+
+<div class="switch" onclick="forgot()">Forgot Password?</div>
+
+<div class="switch" onclick="register()">Create Account</div>
+
+<div class="social">
+
+<a href="404.html">
+<i class="fab fa-google"></i>
+</a>
+
+<a href="404.html">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="404.html">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+</div>
+
+</div>
+
+<!-- REGISTER -->
+
+<div class="form register-form">
+
+<h3>Create Account</h3>
+
+<div class="input-group">
+<input type="text" id="regName" placeholder="Full Name">
+<small class="error" id="regNameError"></small>
+</div>
+
+<div class="input-group">
+<input type="email" id="regEmail" placeholder="Email">
+<small class="error" id="regEmailError"></small>
+</div>
+
+<div class="input-group">
+<input type="password" id="regPassword" placeholder="Password">
+<small class="error" id="regPasswordError"></small>
+</div>
+
+<div class="input-group">
+<input type="password" id="confirmPassword" placeholder="Confirm Password">
+<small class="error" id="confirmPasswordError"></small>
+</div>
+
+<button type="button" class="btn" onclick="validateRegister()">Register</button>
+
+<div class="switch" onclick="login()">Already have account?</div>
+
+</div>
+
+<!-- FORGOT -->
+
+<div class="form forgot-form">
+
+<h3>Reset Password</h3>
+
+<div class="input-group">
+<input type="email" id="forgotEmail" placeholder="Enter your email">
+<small class="error" id="forgotEmailError"></small>
+</div>
+
+<button type="button" class="btn" onclick="validateForgot()">Send Reset Link</button>
+
+<div class="switch" onclick="login()">Back to Login</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/* strong password */
+let strongPassword = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,}$/;
+
+
+/* ERROR FUNCTION */
+
+function showError(input,error,message){
+
+error.innerText = message;
+input.classList.add("error-border");
+
+setTimeout(()=>{
+error.innerText="";
+input.classList.remove("error-border");
+},3000);
+
+}
+
+/* LOGIN */
+
+function validateLogin(){
+
+let email = document.getElementById("loginEmail");
+let password = document.getElementById("loginPassword");
+
+let emailError = document.getElementById("loginEmailError");
+let passwordError = document.getElementById("loginPasswordError");
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/* strong password rule */
+let strongPassword = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,}$/;
+
+let valid = true;
+
+clearErrors();
+
+/* Email validation */
+
+if(email.value.trim()==""){
+showError(email,emailError,"Enter email");
+valid=false;
+}
+else if(!emailPattern.test(email.value)){
+showError(email,emailError,"Enter valid email");
+valid=false;
+}
+
+/* Password validation */
+
+if(password.value.trim()==""){
+showError(password,passwordError,"Enter password");
+valid=false;
+}
+else if(!strongPassword.test(password.value)){
+showError(password,passwordError,"Password must contain uppercase, number & special character");
+valid=false;
+}
+
+/* Redirect */
+
+if(valid){
+window.location.href="404.html";
+}
+
+}
+
+/* REGISTER */
+
+function validateRegister(){
+
+let name = document.getElementById("regName");
+let email = document.getElementById("regEmail");
+let password = document.getElementById("regPassword");
+let confirm = document.getElementById("confirmPassword");
+
+let nameError = document.getElementById("regNameError");
+let emailError = document.getElementById("regEmailError");
+let passError = document.getElementById("regPasswordError");
+let confirmError = document.getElementById("confirmPasswordError");
+
+let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/* strong password */
+let strongPassword = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,}$/;
+
+let valid=true;
+
+clearErrors();
+
+if(name.value.trim()==""){
+showError(name,nameError,"Enter full name");
+valid=false;
+}
+
+if(email.value.trim()==""){
+showError(email,emailError,"Enter email");
+valid=false;
+}
+else if(!emailPattern.test(email.value)){
+showError(email,emailError,"Enter valid email");
+valid=false;
+}
+
+if(password.value.trim()==""){
+showError(password,passError,"Enter password");
+valid=false;
+}
+else if(!strongPassword.test(password.value)){
+showError(password,passError,"Password must contain uppercase, number & special character");
+valid=false;
+}
+
+if(confirm.value.trim()==""){
+showError(confirm,confirmError,"Confirm password");
+valid=false;
+}
+else if(password.value!==confirm.value){
+showError(confirm,confirmError,"Passwords do not match");
+valid=false;
+}
+
+if(valid){
+window.location.href="404.html";
+}
+
+}
+
+/* FORGOT PASSWORD */
+
+function validateForgot(){
+
+let email = document.getElementById("forgotEmail");
+let error = document.getElementById("forgotEmailError");
+
+let valid=true;
+
+if(email.value.trim()==""){
+showError(email,error,"Enter your email");
+valid=false;
+}
+else if(!emailPattern.test(email.value)){
+showError(email,error,"Enter valid email");
+valid=false;
+}
+
+if(valid){
+window.location.href="404.html";
+}
+
+}
+
+</script>
+
+<script>
+
+AOS.init();
+
+/* SLIDE FORMS */
+
+function register(){
+
+document.getElementById("authBox").classList.add("active");
+document.getElementById("authBox").classList.remove("forgot");
+
+/* clear login form */
+document.getElementById("loginEmail").value="";
+document.getElementById("loginPassword").value="";
+
+clearErrors();
+
+}
+
+function login(){
+
+document.getElementById("authBox").classList.remove("active");
+document.getElementById("authBox").classList.remove("forgot");
+
+/* clear register form */
+document.getElementById("regName").value="";
+document.getElementById("regEmail").value="";
+document.getElementById("regPassword").value="";
+document.getElementById("confirmPassword").value="";
+
+clearErrors();
+
+}
+
+function forgot(){
+
+document.getElementById("authBox").classList.add("forgot");
+
+clearErrors();
+
+}
+
+function clearErrors(){
+
+document.querySelectorAll(".error").forEach(e=>{
+e.innerText="";
+});
+
+document.querySelectorAll("input").forEach(i=>{
+i.classList.remove("error-border");
+});
+
+}
+
+/* DARK MODE */
+
+function toggleTheme(){
+document.body.classList.toggle("dark-mode");
+}
+
+</script>
+
+             </main>
+    <!--======  Start Footer  ======-->
+                <footer class="main-footer footer-v3 bg_cover" data-src="assets/images/footer/footer-bg2.webp">
+                    <div class="container">
+                        <div class="footer-top">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <!-- Section Title -->
+                                    <div class="section-title text-white">
+                                        <h2 class="text-anm">Start Your Seamless Online Meetings Today.</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <!-- stackly Button -->
+                                    <div class="stackly-button text-lg-end">
+                                        <a href="index.html"><img src="assets/images/footer/circle-btn2.webp" class="rotate360" alt="circle btn"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-wrapper pt-100">
+                        <div class="container">
+                            <!--=== Footer Widget Area ===-->
+                            <div class="footer-widget-area pb-60">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 order-1">
+                                        <!--=== Footer Widget ===-->
+                                        <div class="footer-widget footer-about-widget mb-40" data-aos="fade-up" data-aos-duration="800">
+                                            <div class="widget-content">
+                                                <div class="footer-logo mb-30">
+                                                    <a href="index.html"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                                                </div>
+                                                <p>Our meeting platform helps teams connect, collaborate, and communicate from anywhere. </p>
+                                                <div class="social-box">
+                                                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="404.html"><i class="fab fa-twitter"></i></a>
+                                                    <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                                                    <a href="404.html"><i class="fab fa-youtube"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12 order-3 order-lg-2">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <!--=== Footer Widget ===-->
+                                                <div class="footer-widget footer-nav-widget mb-40" data-aos="fade-up" data-aos-duration="1000">
+                                                    <div class="widget-content">
+                                                        <h4 class="widget-title">Quick Links</h4>
+                                                        <div class="line-wrap"><span></span><span></span><span></span></div>
+                                                        <ul class="widget-nav">
+                                                            <li><a href="about.html">About</a></li>
+                                                            <li><a href="features.html">Features</a></li>
+                                                            <li><a href="faq.html">FAQs</a></li>
+                                                            <li><a href="pricing.html">Pricing</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <!--=== Footer Widget ===-->
+                                                <div class="footer-widget footer-contact-info-widget mb-40" data-aos="fade-up" data-aos-duration="1200">
+                                                    <div class="widget-content">
+                                                        <h4 class="widget-title">Contact Information</h4>
+                                                        <div class="line-wrap"><span></span><span></span><span></span></div>
+                                                        <ul>
+                                                            <li>
+                                                                Salem, Tamilnadu, India.
+                                                            </li>
+                                                            <li>
+                                                                <span>Need Any Help</span>
+                                                                <h4><a>+91 1234567890</a></h4>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 order-2 order-lg-3">
+                                        <!--=== Footer Widget ===-->
+                                        <div class="footer-widget footer-newsletter-widget mb-40" data-aos="fade-up" data-aos-duration="1400">
+                                            <div class="widget-content">
+                                             <h4 class="widget-title">Subscribe To Newsletter</h4>
+<div class="line-wrap"><span></span><span></span><span></span></div>
+
+<p>Subscribe to receive meeting updates, new features and platform announcements.</p>
+
+<form id="newsletterForm" autocomplete="off">
+
+<div class="form-group">
+
+<input type="email" class="form_control" placeholder="Enter Email Address" id="newsletterEmail">
+
+<button type="submit" class="submit-btn">
+<i class="far fa-paper-plane"></i>
+</button>
+
+<small class="error" id="newsletterError"></small>
+
+</div>
+
+</form>
+<script>
+
+document.getElementById("newsletterForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("newsletterEmail");
+let error = document.getElementById("newsletterError");
+
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+/* Clear error */
+
+error.innerText="";
+email.classList.remove("error-border");
+
+/* Empty email */
+
+if(email.value.trim()==""){
+showNewsletterError("Please enter your email address");
+return;
+}
+
+/* Invalid email */
+
+if(!emailPattern.test(email.value)){
+showNewsletterError("Please enter a valid email address");
+return;
+}
+
+/* If valid redirect */
+
+window.location.href="404.html";
+
+});
+
+
+function showNewsletterError(message){
+
+let email = document.getElementById("newsletterEmail");
+let error = document.getElementById("newsletterError");
+
+error.innerText = message;
+email.classList.add("error-border");
+
+/* Remove after 3 seconds */
+
+setTimeout(()=>{
+error.innerText="";
+email.classList.remove("error-border");
+},3000);
+
+}
+
+</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--=== Copyright Area ===-->
+                            <div class="copyright-area">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--=== Copyright Text ===-->
+                                        <div class="copyright-text text-center">
+                                            <p>&copy;All Copyright 2026 by <span>Stackly</span>. All Rights Reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer><!--======  End Footer  ======-->
+            </div>
+        </div>
+        <!--====== Jquery js ======-->
+        <script src="assets/js/plugins/jquery-3.7.1.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/plugins/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/plugins/bootstrap.min.js"></script>
+        <!--====== Gsap Js ======-->
+        <script src="assets/js/plugins/gsap/gsap.min.js"></script>
+        <script src="assets/js/plugins/gsap/SplitText.min.js"></script>
+        <script src="assets/js/plugins/gsap/ScrollSmoother.min.js"></script>
+        <script src="assets/js/plugins/gsap/ScrollTrigger.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/plugins/slick.min.js"></script>
+        <!--====== Magnific js ======-->
+        <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+        <!--====== Waypoint js ======-->
+        <script src="assets/js/plugins/jquery.waypoints.js"></script>
+        <!--====== CounterUp js ======-->
+        <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+        <!--====== Aos js ======-->
+        <script src="assets/js/plugins/aos.js"></script>
+        <!--====== Common js ======-->
+        <script src="assets/js/theme.js"></script>
+    </body>
+</html>

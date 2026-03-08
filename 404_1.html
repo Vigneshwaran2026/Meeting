@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Meeting Not Found</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+background:#f4f6fb;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+padding:20px;
+}
+
+/* 404 IMAGE */
+
+.error-image img{
+width:100%;
+max-width:520px;
+margin-bottom:30px;
+}
+
+/* TITLE */
+
+.error-title{
+font-size:34px;
+font-weight:700;
+color:#0f172a;
+margin-bottom:15px;
+}
+
+/* DESCRIPTION */
+
+.error-desc{
+font-size:16px;
+color:#6b7280;
+line-height:1.7;
+max-width:520px;
+margin:auto;
+margin-bottom:35px;
+}
+
+/* BUTTON */
+
+.error-btn{
+display:inline-block;
+padding:14px 32px;
+font-size:15px;
+font-weight:600;
+color:white;
+border-radius:30px;
+text-decoration:none;
+background: var(--Gradient-color-2, linear-gradient(266deg, #F63 -1.18%, #6D2CF9 96.14%));
+transition:0.3s;
+}
+
+.error-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:600px){
+
+.error-title{
+font-size:26px;
+}
+
+.error-desc{
+font-size:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- 404 IMAGE -->
+<div class="error-image">
+<img src="assets/images/home-three/bg/404.webp" alt="404 Meeting Error">
+</div>
+
+<!-- ERROR TITLE -->
+<h2 class="error-title">
+Oops! This Meeting Room Doesn't Exist
+</h2>
+
+<!-- DESCRIPTION -->
+<p class="error-desc">
+The meeting link may have expired, been removed, or you may not have permission to access it.
+Please check the meeting ID or return to the dashboard to start or join a new meeting.
+</p>
+
+<!-- BUTTON -->
+<a href="index-2.html" class="error-btn">
+Back to Home
+</a>
+
+</div>
+
+</body>
+</html>
