@@ -1472,16 +1472,26 @@ video conferencing, screen sharing, and real-time collaboration.</p>
         <script src="assets/js/theme.js"></script>
 
         <script>
-            $('.hero-carousel').slick({
-slidesToShow:1,
-slidesToScroll:1,
-arrows:false,
-dots:false,
-autoplay:true,
-autoplaySpeed:3000,
-fade:true,
-speed:800
+$(window).on('load', function () {
+
+    if ($('.hero-carousel').length) {
+
+        $('.hero-carousel').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            dots: false,
+            fade: true,
+            infinite: true,
+            speed: 800
+        });
+
+    }
+
 });
         </script>
     </body>
+
 </html>
