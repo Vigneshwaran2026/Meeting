@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <!--====== Required meta tags ======-->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--====== Title ======-->
+        <title>Stackly Meeting</title>
+        <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+        <!--====== Google Fonts ======-->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!--====== FontAwesome css ======-->
+        <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <!--====== Bootstrap css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+        <!--====== Slick-popup css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/slick.css">
+        <!--====== Magnific-popup css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+        <!--====== Aos css ======-->
+        <link rel="stylesheet" href="assets/css/plugins/aos.css">
+        <!--====== Default css ======-->
+        <link rel="stylesheet" href="assets/css/spacings.css">
+        <!--====== Default css ======-->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <style>
+
+            body.dark-mode{
+
+--bg-color:#0b0c2a;
+--chat-bg:#121436;
+--sidebar-bg:#2a0433;
+--header-bg:#151a4d;
+--message-bg:#1f2466;
+--text-color:#ffffff;
+
+}
+
+body.dark-mode .team-chat-wrapper{
+background:#0b0c2a;
+}
+
+body.dark-mode .member-list li span{
+color:white;
+}
+
+body.dark-mode .profile-box h4{
+color:white;
+}
+
+body.dark-mode .chat-header h3{
+color:white;
+}
+            .team-chat-wrapper{
+padding:120px 0;
+background:white;
+}
+
+.chat-app{
+max-width:1100px;
+margin:auto;
+display:flex;
+background:#121436;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+/* SIDEBAR */
+
+.chat-sidebar{
+width:280px;
+background:#2a0433;
+padding:20px;
+border-right:2px solid rgba(255,255,255,0.15);
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.profile-box{
+text-align:center;
+margin-bottom:30px;
+}
+
+.profile-box img{
+border-radius:50%;
+width:70px;
+margin-bottom:10px;
+}
+
+.team-title{
+margin-bottom:15px;
+}
+
+.member-list{
+list-style:none;
+padding:0;
+}
+
+.member-list li{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+cursor:pointer;
+border-radius:8px;
+transition:.3s;
+}
+
+.member-list li:hover{
+background:#1b1f5a;
+}
+
+.member-list li.active{
+background:#ff3b3b;
+}
+
+.member-list img{
+border-radius:50%;
+}
+
+/* CHAT AREA */
+
+.chat-container{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+.chat-header{
+background:#151a4d;
+padding:15px 20px;
+color:white;
+display:flex;
+justify-content:space-between;
+}
+
+.online-status{
+color:#4cff4c;
+}
+
+.chat-messages{
+flex:1;
+padding:20px;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* MESSAGE */
+
+.message{
+display:flex;
+gap:10px;
+animation:fadeUp .3s ease;
+}
+
+.message.me{
+justify-content:flex-end;
+}
+
+.bubble{
+background:#1f2466;
+padding:10px 15px;
+border-radius:12px;
+color:white;
+max-width:260px;
+}
+
+.message.me .bubble{
+background:linear-gradient(45deg,#ff3b3b,#ff6a00);
+}
+
+/* REPLY BUTTON */
+
+.reply-btn{
+font-size:12px;
+margin-top:5px;
+color:#aaa;
+cursor:pointer;
+}
+
+.reply-btn:hover{
+color:white;
+}
+
+/* INPUT */
+
+.chat-input{
+display:flex;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.chat-input input{
+flex:1;
+padding:15px;
+border:none;
+background:#0f1238;
+color:white;
+}
+
+.chat-input button{
+background:linear-gradient(45deg,#ff3b3b,#ff6a00);
+border:none;
+padding:0 20px;
+cursor:pointer;
+color:white;
+}
+
+@keyframes fadeUp{
+from{transform:translateY(10px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+
+.profile-box h4{
+color:#ffffff;
+font-size:22px;
+font-weight:600;
+margin-top:10px;
+}
+
+.profile-box p{
+color:#d0d0d0;
+font-size:14px;
+}
+
+
+.chat-header h3{
+color:#ffffff;
+font-size:22px;
+font-weight:600;
+}
+
+.member-list li span{
+color:white;
+}
+
+.member-list li.active span{
+color:white;
+font-weight:600;
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ============================= */
+
+@media (max-width:768px){
+
+.team-chat-wrapper{
+padding:40px 10px;
+}
+
+.chat-app{
+flex-direction:column;
+max-width:100%;
+border-radius:10px;
+}
+
+/* SIDEBAR TOP USERS */
+
+.chat-sidebar{
+width:100%;
+display:flex;
+flex-direction:column;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.1);
+padding:15px;
+}
+
+/* PROFILE SMALL */
+
+.profile-box{
+display:flex;
+align-items:center;
+gap:10px;
+text-align:left;
+margin-bottom:10px;
+}
+
+.profile-box img{
+width:45px;
+}
+
+.profile-box h4{
+font-size:16px;
+}
+
+.profile-box p{
+font-size:12px;
+}
+
+/* TEAM MEMBERS SCROLL */
+
+.member-list{
+display:flex;
+overflow-x:auto;
+gap:10px;
+padding-bottom:10px;
+}
+
+.member-list li{
+flex:0 0 auto;
+padding:8px 12px;
+}
+
+/* CHAT HEADER */
+
+.chat-header{
+padding:12px 15px;
+font-size:16px;
+}
+
+/* CHAT MESSAGES */
+
+.chat-messages{
+padding:15px;
+}
+
+/* MESSAGE BUBBLE */
+
+.bubble{
+font-size:14px;
+max-width:75%;
+}
+
+/* INPUT AREA */
+
+.chat-input{
+position:relative;
+}
+
+.chat-input input{
+padding:12px;
+font-size:14px;
+}
+
+.chat-input button{
+padding:0 16px;
+}
+
+}
+        </style>
+
+    </head>
+    <body class="home-three">
+                <!--====== Start Preloader ======-->
+        <div class="preloader">
+            <div class="loading-wrapper">
+                <div class="loading"></div>
+                <div id="loading-icon"><img src="assets/images/loader/loader-1.webp" alt="loader"></div>
+            </div>
+        </div><!--====== End Preloader ======-->
+        <!--====== Start Overlay ======-->
+        <div class="offcanvas__overlay"></div>
+        <!--=== Start  Header Area  ===-->
+        <header class="header-area header-three transparent-header">
+            <!--====  Header Navigation  ===-->
+            <div class="header-navigation">
+                <div class="container-fluid">
+                    <!--====  Primary Menu  ===-->
+                    <div class="primary-menu">
+                        <!--====  Site Branding  ===-->
+                        <div class="site-branding">
+                            <a href="index.html" class="brand-logo"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                        </div>
+                        <!--=== Main Menu ===-->
+                        <div class="theme-nav-menu">
+                            <!--=== Menu Top ===-->
+                            <div class="theme-menu-top d-block d-xl-none">
+                                <div class="site-branding">
+                                    <a href="index.html" class="brand-logo"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                                </div>
+                            </div>
+                            <!--=== Main Menu ===-->
+                            <nav class="main-menu">
+                                <ul>
+                                    <li class="menu-item has-children"><a href="index.html">Home</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index.html">Home One</a></li>
+                                            <li><a href="index-2.html">Home Two</a></li>
+                                        </ul>
+                                    </li>   
+                                    <li class="menu-item"><a href="about.html">About</a></li>
+                                    <li class="menu-item"><a href="features.html">Features</a></li>
+                                    <li class="menu-item"><a href="pricing.html">Pricing</a></li>        
+                                    <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+                                     <li class="menu-item"><a href="faq.html">FAQs</a></li>
+                                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <!--=== Nav Button ===-->
+                            <div class="theme-nav-button mt-20 d-block d-md-none">
+                                <a href="login.html" class="theme-btn style-one">Get A Quote<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <!--===  Menu Bottom ===-->
+                            <div class="theme-menu-bottom mt-50 d-block d-xl-none">
+                                <h5>Follow Us</h5>
+                                <ul class="social-link">
+                                    <li><a href="404.html"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="404.html"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--=== Header Nav Right ===-->
+                        <div class="nav-right-item">
+                                <div class="theme-toggle">
+       <button id="themeToggle">
+<i class="fas fa-moon"></i>
+</button>
+    </div>
+
+    <!-- Get a Quote Button -->
+    <div class="nav-button d-none d-md-block">
+        <a href="login.html" class="theme-btn style-one">
+            Get A Quote <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+                            <div class="navbar-toggler">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </header><!--=== End  Header Area  ===-->
+
+        <!--======  Smooth Wrapper  ======-->
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <main>
+                    <!--======  Start Page Hero Section  ======-->
+                    <section class="page-hero bg_cover p-r z-1" data-src="assets/images/home-three/about/page-bg.webp">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!--=== Page Content ===-->
+                                    <div class="page-content text-center">
+                                        <h1>Team Chat</h1>
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li>Chat</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section><!--======  End Page Hero Section  ======-->
+<section class="team-chat-wrapper">
+
+<div class="chat-app">
+
+<!-- LEFT SIDEBAR -->
+<div class="chat-sidebar">
+
+<div class="profile-box">
+<img src="assets/images/home-three/testimonial/author-img1.webp">
+<h4>Rahul</h4>
+<p>Full Stack Developer</p>
+</div>
+
+<h5 class="team-title">Team Members</h5>
+
+<ul class="member-list">
+
+<li onclick="openChat('alex')" class="active">
+<img src="assets/images/home-three/testimonial/author-img2.webp">
+<span>Alex</span>
+</li>
+
+<li onclick="openChat('emma')">
+<img src="assets/images/home-three/testimonial/author-img3.webp">
+<span>Emma</span>
+</li>
+
+<li onclick="openChat('david')">
+<img src="assets/images/home-three/hero/avatar-img3.webp">
+<span>David</span>
+</li>
+
+<li onclick="openChat('sophia')">
+<img src="assets/images/home-three/hero/avatar-img2.webp">
+<span>Sophia</span>
+</li>
+
+</ul>
+
+</div>
+
+<!-- CHAT AREA -->
+<div class="chat-container">
+
+<div class="chat-header">
+<h3 id="chatUser">Alex</h3>
+<span class="online-status">Online</span>
+</div>
+
+<div class="chat-messages" id="chatMessages">
+
+</div>
+
+<div class="chat-input">
+
+<input type="text" id="chatInput" placeholder="Type a message...">
+
+<button onclick="sendMessage()">
+<i class="fa-solid fa-paper-plane"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    let chats={
+alex:[
+{from:"alex",text:"Hey team 👋"},
+{from:"me",text:"Hi Alex!"}
+],
+emma:[
+{from:"emma",text:"Meeting at 4 PM"},
+],
+david:[
+{from:"david",text:"Project update ready"},
+],
+sophia:[
+{from:"sophia",text:"Let's start discussion"}
+]
+};
+
+let currentUser="alex";
+
+function openChat(user){
+
+currentUser=user;
+
+document.getElementById("chatUser").innerText=
+user.charAt(0).toUpperCase()+user.slice(1);
+
+renderMessages();
+
+}
+
+function renderMessages(){
+
+let box=document.getElementById("chatMessages");
+
+box.innerHTML="";
+
+chats[currentUser].forEach(msg=>{
+
+let div=document.createElement("div");
+
+div.className="message "+(msg.from==="me"?"me":"");
+
+div.innerHTML=`
+<div class="bubble">
+${msg.text}
+<div class="reply-btn" onclick="replyMessage('${msg.text}')">Reply</div>
+</div>
+`;
+
+box.appendChild(div);
+
+});
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+function sendMessage(){
+
+let input=document.getElementById("chatInput");
+
+let msg=input.value.trim();
+
+if(msg==="")return;
+
+chats[currentUser].push({
+from:"me",
+text:msg
+});
+
+input.value="";
+
+renderMessages();
+
+}
+
+function replyMessage(text){
+
+document.getElementById("chatInput").value="Replying to: "+text+" ";
+
+}
+
+renderMessages();
+</script>
+
+                </main>
+        <!--======  Start Footer  ======-->
+                <footer class="main-footer footer-v3 bg_cover" data-src="assets/images/footer/footer-bg2.webp">
+                    <div class="container">
+                        <div class="footer-top">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <!-- Section Title -->
+                                    <div class="section-title text-white">
+                                        <h2 class="text-anm">Start Your Seamless Online Meetings Today.</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <!-- stackly Button -->
+                                    <div class="stackly-button text-lg-end">
+                                        <a href="index.html"><img src="assets/images/footer/circle-btn2.webp" class="rotate360" alt="circle btn"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom-wrapper pt-100">
+                        <div class="container">
+                            <!--=== Footer Widget Area ===-->
+                            <div class="footer-widget-area pb-60">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 order-1">
+                                        <!--=== Footer Widget ===-->
+                                        <div class="footer-widget footer-about-widget mb-40" data-aos="fade-up" data-aos-duration="800">
+                                            <div class="widget-content">
+                                                <div class="footer-logo mb-30">
+                                                    <a href="index.html"><img src="assets/images/home-three/logo/logo.webp" alt="Brand Logo"></a>
+                                                </div>
+                                                <p>Our meeting platform helps teams connect, collaborate, and communicate from anywhere. </p>
+                                                <div class="social-box">
+                                                    <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="404.html"><i class="fab fa-twitter"></i></a>
+                                                    <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                                                    <a href="404.html"><i class="fab fa-youtube"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12 order-3 order-lg-2">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <!--=== Footer Widget ===-->
+                                                <div class="footer-widget footer-nav-widget mb-40" data-aos="fade-up" data-aos-duration="1000">
+                                                    <div class="widget-content">
+                                                        <h4 class="widget-title">Quick Links</h4>
+                                                        <div class="line-wrap"><span></span><span></span><span></span></div>
+                                                        <ul class="widget-nav">
+                                                            <li><a href="about.html">About</a></li>
+                                                            <li><a href="features.html">Features</a></li>
+                                                            <li><a href="faq.html">FAQs</a></li>
+                                                            <li><a href="pricing.html">Pricing</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <!--=== Footer Widget ===-->
+                                                <div class="footer-widget footer-contact-info-widget mb-40" data-aos="fade-up" data-aos-duration="1200">
+                                                    <div class="widget-content">
+                                                        <h4 class="widget-title">Contact Information</h4>
+                                                        <div class="line-wrap"><span></span><span></span><span></span></div>
+                                                        <ul>
+                                                            <li>
+                                                                Salem, Tamilnadu, India.
+                                                            </li>
+                                                            <li>
+                                                                <span>Need Any Help</span>
+                                                                <h4><a>+91 1234567890</a></h4>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 order-2 order-lg-3">
+                                        <!--=== Footer Widget ===-->
+                                        <div class="footer-widget footer-newsletter-widget mb-40" data-aos="fade-up" data-aos-duration="1400">
+                                            <div class="widget-content">
+                                             <h4 class="widget-title">Subscribe To Newsletter</h4>
+<div class="line-wrap"><span></span><span></span><span></span></div>
+
+<p>Subscribe to receive meeting updates, new features and platform announcements.</p>
+
+<form id="newsletterForm" autocomplete="off">
+
+<div class="form-group">
+
+<input type="email" class="form_control" placeholder="Enter Email Address" id="newsletterEmail">
+
+<button type="submit" class="submit-btn">
+<i class="far fa-paper-plane"></i>
+</button>
+
+<small class="error" id="newsletterError"></small>
+
+</div>
+
+</form>
+<script>
+
+document.getElementById("newsletterForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("newsletterEmail");
+let error = document.getElementById("newsletterError");
+
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+/* Clear error */
+
+error.innerText="";
+email.classList.remove("error-border");
+
+/* Empty email */
+
+if(email.value.trim()==""){
+showNewsletterError("Please enter your email address");
+return;
+}
+
+/* Invalid email */
+
+if(!emailPattern.test(email.value)){
+showNewsletterError("Please enter a valid email address");
+return;
+}
+
+/* If valid redirect */
+
+window.location.href="404.html";
+
+});
+
+
+function showNewsletterError(message){
+
+let email = document.getElementById("newsletterEmail");
+let error = document.getElementById("newsletterError");
+
+error.innerText = message;
+email.classList.add("error-border");
+
+/* Remove after 3 seconds */
+
+setTimeout(()=>{
+error.innerText="";
+email.classList.remove("error-border");
+},3000);
+
+}
+
+</script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--=== Copyright Area ===-->
+                            <div class="copyright-area">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--=== Copyright Text ===-->
+                                        <div class="copyright-text text-center">
+                                            <p>&copy;All Copyright 2026 by <span>Stackly</span>. All Rights Reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer><!--======  End Footer  ======-->
+            </div>
+        </div>
+        <!--====== Jquery js ======-->
+        <script src="assets/js/plugins/jquery-3.7.1.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/plugins/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/plugins/bootstrap.min.js"></script>
+        <!--====== Gsap Js ======-->
+        <script src="assets/js/plugins/gsap/gsap.min.js"></script>
+        <script src="assets/js/plugins/gsap/SplitText.min.js"></script>
+        <script src="assets/js/plugins/gsap/ScrollSmoother.min.js"></script>
+        <script src="assets/js/plugins/gsap/ScrollTrigger.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/plugins/slick.min.js"></script>
+        <!--====== Magnific js ======-->
+        <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+        <!--====== Waypoint js ======-->
+        <script src="assets/js/plugins/jquery.waypoints.js"></script>
+        <!--====== CounterUp js ======-->
+        <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+        <!--====== Aos js ======-->
+        <script src="assets/js/plugins/aos.js"></script>
+        <!--====== Common js ======-->
+        <script src="assets/js/theme.js"></script>
+    </body>
+</html>
