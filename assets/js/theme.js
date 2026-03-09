@@ -472,25 +472,27 @@ window.addEventListener("load", function(){
 
 const toggleBtn = document.getElementById("themeToggle");
 
-toggleBtn.addEventListener("click", function () {
+if (toggleBtn) {
+    toggleBtn.addEventListener("click", function () {
 
-    document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("dark-mode");
 
-    const icon = this.querySelector("i");
+        const icon = this.querySelector("i");
 
-    if(document.body.classList.contains("dark-mode")){
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
+        if (document.body.classList.contains("dark-mode")) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
 
-        document.cookie = "theme=dark; path=/";
-    }else{
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
+            document.cookie = "theme=dark; path=/";
+        } else {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
 
-        document.cookie = "theme=light; path=/";
-    }
+            document.cookie = "theme=light; path=/";
+        }
 
-});
+    });
+}
 
 let resizeTimer;
 
