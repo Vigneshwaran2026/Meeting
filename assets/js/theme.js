@@ -1,32 +1,3 @@
-/*-----------------------------------------------------------------------------------
-    
-    Template Name: stackly - AI Agency & Technology HTML Template
-    URI: https://nayonacademy.com/
-    Description: stackly – AI Agency & Technology HTML Template is a modern, clean, and fully responsive template designed for AI startups, tech companies, digital agencies, and innovative businesses. With a sleek user interface and cutting-edge design, stackly helps you showcase your services, products, and projects in a professional way.
-    Author: Themeservices
-    Author URI: https://themeforest.net/user/themeservices
-    Version: 1.0 
-
-    Note: This is Main Js file
-
------------------------------------------------------------------------------------
-    ===================
-    Js INDEX
-    ===================
-    ## Main Menu
-    ## Offcanvas Overlay
-    ## Preloader
-    ## Sticky
-    ## Magnific-popup js
-    ## Slick Slider
-    ## Gsap
-    ## Project JS
-    ## Item Active JS
-    ## Dynamic Background
-    ## AOS Js
-    ## Document Ready
-    
------------------------------------------------------------------------------------*/
 
 (function($) {
     'use strict';
